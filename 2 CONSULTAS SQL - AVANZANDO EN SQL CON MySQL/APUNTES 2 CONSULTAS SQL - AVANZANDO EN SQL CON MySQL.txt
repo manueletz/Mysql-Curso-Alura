@@ -1,0 +1,7 @@
+--HAVING
+Es un filtro que se aplica sobre el resultado de una agregación.
+
+--UNION
+Permite unir 2 o más tablas. (Implicitamente ejecuta DISTINCT)
+
+El número de campos en las tablas debe ser igual (mismos campos y mismo tipos)
