@@ -1,4 +1,4 @@
-CREATE SCHEMA jugos_ventas;
+CREATE SCHEMA ´jugos_ventas´;
 
 USE jugos_ventas;
 
