@@ -5,3 +5,13 @@ Es un filtro que se aplica sobre el resultado de una agregación.
 Permite unir 2 o más tablas. (Implicitamente ejecuta DISTINCT)
 
 El número de campos en las tablas debe ser igual (mismos campos y mismo tipos)
+
+
+--EXPLICACION DE FUNCION DE MYSQL
+https://dev.mysql.com/doc/refman/8.0/en/functions.html
+
+https://www.w3schools.com/sql/sql_ref_mysql.asp
+
+
+--FORMATO DE FECHA EN MYSQL
+https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html#function_date-format
