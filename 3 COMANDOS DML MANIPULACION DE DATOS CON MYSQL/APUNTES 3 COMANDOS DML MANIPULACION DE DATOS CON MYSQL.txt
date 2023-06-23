@@ -1,0 +1,12 @@
+Engine InnoDB y MyISAM
+
+--InnoDB
+InnoDB es un engine que permite muchas transacciones, es más robusto, entonces
+hay casos en los cuales la base de datos sufre muchas modificaciones, muchas
+alteraciones, y entonces, InnoDB gestionar mejor estas transacciones.
+
+--MyISAM
+Ya lo que es MyISAM, él ya es un engine usado cuando la base de datos
+no tiene tantos cambios. Por ejemplo, una tabla de registros que cambia muy poco,
+una tabla de registros de clientes, por ejemplo, que tiene pocas modificaciones,
+entonces ella es como más estática, no es tan dinámica, podemos usar MyISAM. 
