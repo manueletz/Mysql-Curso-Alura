@@ -1,0 +1,7 @@
+--Comando para tratar errores
+DECLARE EXIT HANDLER FOR
+
+-- Normalmente la instalacion de MySQL no permite que el usuario cree funciones por defecto
+se debe habilitar el siguiente parametro
+
+SET GLOBAL log_bin_trust_function_creators = 1;
