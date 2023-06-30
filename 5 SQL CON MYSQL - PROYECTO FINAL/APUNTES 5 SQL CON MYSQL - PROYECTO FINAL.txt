@@ -1,0 +1,3 @@
+-- parametro para crear funciones que se debe activar
+
+SET GLOBAL log_bin_trust_function_creators=1
