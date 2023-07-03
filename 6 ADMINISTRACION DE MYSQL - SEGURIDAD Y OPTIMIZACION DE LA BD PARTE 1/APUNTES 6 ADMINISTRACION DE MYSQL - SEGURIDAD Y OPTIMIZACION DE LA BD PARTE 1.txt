@@ -51,4 +51,4 @@ Export do Dump Project Folder
 -- Y PARA RECUPERARLO ES MENOR QUE
 
 --RECUPERAR UN BACKUP DESDE CMD
-mysqldump -u root -p < c:\sql_dba\jugos_ventas_full.sql
+mysql -u root -p < c:\sql_dba\jugos_ventas_full.sql
