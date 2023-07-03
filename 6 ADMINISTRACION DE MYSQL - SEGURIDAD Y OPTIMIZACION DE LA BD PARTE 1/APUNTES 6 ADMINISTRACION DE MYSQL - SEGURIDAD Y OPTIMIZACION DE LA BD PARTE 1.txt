@@ -1,0 +1,54 @@
+--Archivo y ruta donde se almacenan las conexiones a base
+--de datos en Workbench
+C:\Users\Propietario\AppData\Roaming\MySQL\Workbench\connections.xml
+
+--Para detener el servidor de MySql para un mantenimiento
+--debemos finalizar el servicio 
+MySQL80
+
+Digamos en este lapso en el cual él estuvo detenido,
+yo pude haber hecho todas las alteraciones que necesitaba hacer,
+por ejemplo al archivo my.ini, que es donde se encuentran diversas
+opciones de inicialización de MySQL para las conexiones.
+Quiero cambiar algo, quiero por ejemplo, darle más memoria a las tablas
+temporales para que no nos queden escritas en disco duro y de repente
+se está demorando mucho el trabajo.
+
+--Detener el servidor de Mysql con la venta cmd
+net stop mysql80
+
+--Activar nuevamente
+net start mysql80
+
+--ver la variable de entorno de mysql
+SHOW STATUS;
+
+--Ruta donde esta el archivo my.ini
+C:\ProgramData\MySQL\MySQL Server 8.0\my.ini
+
+--ver las tablas temporales escritas en disco
+SHOW GLOBAL STATUS LIKE 'Created_tmp_disk_tables';
+
+--ruta para backup 
+C:\Program Files\MySQL\MySQL Server 8.0\bin\mysqldump.exe
+
+--realizar un backup de jugos ventas
+mysqldump -u root -p --databases jugos_ventas > c:\sql_dba\jugos_ventas_full.sql
+
+--ignorando una tabla
+mysqldump -u root -p --databases jugos_ventas --ignore-table jugos_ventas.facturas > c:\sql_dba\jugos_ventas_sin_facturas.sql
+
+--bloquear la base de datos para hacer backup
+LOCK instance for backup;
+
+--desbloquer la base de datos
+UNLOCK INSTANCE;
+
+Cuál es la opción que le permite a Workbench crear un subdirectorio e incluya un archivo de comandos SQL para cada tabla
+Export do Dump Project Folder
+
+-- PARA EXPORTAR EL ARCHIVO EN BACKUP ES MAYOR
+-- Y PARA RECUPERARLO ES MENOR QUE
+
+--RECUPERAR UN BACKUP DESDE CMD
+mysqldump -u root -p < c:\sql_dba\jugos_ventas_full.sql
