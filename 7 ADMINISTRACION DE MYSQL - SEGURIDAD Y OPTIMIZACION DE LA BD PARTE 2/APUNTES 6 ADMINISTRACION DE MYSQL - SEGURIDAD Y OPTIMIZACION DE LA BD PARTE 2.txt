@@ -1,1 +1,32 @@
-INICIO
+EXPLICAR EL PLAN DE EJECUCION
+
+--\G es para que lo coloque vertical
+EXPLAIN SELECT A.CODIGO_DEL_PRODUCTO FROM tabla_de_productos A \G;
+
+--FORMATO JSON
+EXPLAIN FORMAT = JSON SELECT A.CODIGO_DEL_PRODUCTO FROM tabla_de_productos A \G;
+
+
+EXPLAIN FORMAT=JSON SELECT * FROM FACTURAS WHERE FECHA_VENTA = '20170101' \G;
+
+--USAR MYSQLSLAP PARA SIMULAR CONECCIONES CONCURRENTES
+C:\portapps\mysql-8.0.32-winx64\bin>mysqlslap -uroot -p --concurrency=100 --iterations=10 --create-schema=jugos_ventas --query="SELECT * FROM facturas WHERE FECHA_VENTA='20170101'";
+
+
+¿Qué puedo hacer? Ya como DBA sucedió esta situación, puedo simular cómo puedo mejorar,
+entonces mi base de datos ¿cómo le puedo expresar o dar a conocer al analista que puede
+hacer y qué medidas puede tomar?
+
+Hay decenas de medidas que se pueden tomar, pero dentro de las principales es los índices.
+¿Qué se puede orientar? Que en nuestras igualdades al momento de hacer los JOINs estos campos
+sean índices, o sea claves primarias. Cuando esos campos son claves primarias recuerden que se
+crea el índice automáticamente. Entonces eso es fundamental.
+
+También en nuestra condición de filtro, establecer un índice. Si hacemos esto, entonces va a
+haber una mejora sustancial en el desempeño de nuestras queries. Entonces esto es lo que les
+queríamos dejar como ejemplo principalmente para mejorar entonces el tiempo de nuestras consultas. 
+
+--CREAR USUARIO Y DAR PRIVILEGIOS
+CREATE USER 'admin02'@'localhost' IDENTIFIED BY 'admin02';
+
+GRANT ALL PRIVILEGES ON *.* TO 'admin02'@'localhost' WITH GRANT OPTION;
